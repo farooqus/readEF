@@ -13,21 +13,22 @@
 					<table>
 						{% for dataset in data %}   
 							{% for events in dataset %}
-							<tr><td>{{ events.name }}</td></tr>	
-								
+							<tr><td colspan="2"><b>{{ events.name }}</b></td></tr>
 								{% for sessions in events.sessions %}
-								
 									{% for session in sessions|reverse %}
-										<tr><td>Date:</td><td>{{ session.datetime_start }} </td></tr>
+                                        {% if session.datetime_start %}
+										    <tr><td>Date:</td><td>{{ session.datetime_start | date('l j F Y')}}</td></tr>
+                                        {% endif %}
 									{% endfor %}
-								
 								{% endfor %}
 								{% for ticket_types in events.ticket_types %}
-									{% for ticket_type in ticket_types %}									
-									<tr><td>Ticket Type:</td><td>{{ ticket_type.name}}</td></tr>
+									{% for ticket_type in ticket_types %}
+                                        {% if ticket_type.name %}
+									        <tr><td>Ticket Type:</td><td>{{ ticket_type.name}}</td></tr>
+                                        {% endif %}
 									{% endfor %}
 								{% endfor %}
-							{% endfor %} 
+							{% endfor %}
 						{% endfor %}					
 					</table>
 					<!-- data end -->				
