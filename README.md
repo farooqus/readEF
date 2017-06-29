@@ -7,6 +7,7 @@ Get event list with name , session dates and ticket types
 1. Run composer install
 
 ### Configuration ###
+1. Sign Up for API [EventFinda API](https://www.eventfinda.co.nz/api/v2/index)
 1. Add following parameters to parameters.yml
 
 ```
