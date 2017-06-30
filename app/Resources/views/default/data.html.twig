@@ -13,7 +13,9 @@
 					<table>
 						{% for dataset in data %}   
 							{% for events in dataset %}
+							{% if events.name %}
 							<tr><td colspan="2"><b>{{ events.name }}</b></td></tr>
+							{% endif %}
 								{% for sessions in events.sessions %}
 									{% for session in sessions|reverse %}
                                         {% if session.datetime_start %}
